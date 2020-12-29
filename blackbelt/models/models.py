@@ -22,16 +22,8 @@ class blackbelt(models.Model):
      wipe_result = fields.Char()
      wipe_date = fields.Datetime(string='Lastest Wipe Date')
      blacklisted = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
      date_create = fields.Datetime(string='Create Date', required=True, readonly=True, index=True, copy=False, default=fields.Datetime.now, help="Creation date of Serial number by blackbelt")
-     
-
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+    
             
 class blackbeltserial(models.Model):
      _name = 'blackbelt.serial'
