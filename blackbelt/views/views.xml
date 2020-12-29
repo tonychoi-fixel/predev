@@ -21,8 +21,7 @@
           <field name="wipe_result"/>
           <field name="wipe_date"/>
           <field name="blacklisted" />
-          <field name="date_create"/>
-            
+          <field name="date_create"/>         
         </tree>
       </field>
     </record>
