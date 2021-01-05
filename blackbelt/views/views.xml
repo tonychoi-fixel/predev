@@ -15,12 +15,14 @@
           <field name="color"/>
           <field name="carrier"/>
           <field name="imei"/>
-          <field name="imei2"/>           
+          <field name="imei2"/>
+          <field name="batteryhealth"/>
           <field name="wipe_type"/>
           <field name="wipe_method"/>             
           <field name="wipe_result"/>
           <field name="wipe_date"/>
           <field name="blacklisted" />
+          <field name="date_update" />
           <field name="date_create"/>         
         </tree>
       </field>
