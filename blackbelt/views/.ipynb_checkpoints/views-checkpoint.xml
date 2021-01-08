@@ -1,0 +1,99 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="blackbelt.list">
+      <field name="name">Blackbelt List</field>
+      <field name="model">blackbelt.blackbelt</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" invisible = "1"/>
+          <field name="serialnumber"/>
+          <field name="manufacturer"/>
+          <field name="model"/>
+          <field name="modelnumber"/>            
+          <field name="color"/>
+          <field name="carrier"/>
+          <field name="imei"/>
+          <field name="imei2"/>
+          <field name="batteryhealth"/>
+          <field name="wipe_type"/>
+          <field name="wipe_method"/>             
+          <field name="wipe_result"/>
+          <field name="wipe_date"/>
+          <field name="blacklisted" />
+          <field name="date_update" />
+          <field name="date_create"/>         
+        </tree>
+      </field>
+    </record>
+      
+    <record model="ir.ui.view" id="blackbelt.list_Serial">
+      <field name="name">Blackbelt Serial List</field>
+      <field name="model">blackbelt.serial</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="manufacturer"/>
+          <field name="value"/>
+          <field name="value2"/>
+          <field name="date_create"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="blackbelt.action_window">
+      <field name="name">Blackbelt Window</field>
+      <field name="res_model">blackbelt.blackbelt</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+      
+    <record model="ir.actions.act_window" id="blackbelt.action_window_serial">
+      <field name="name">Blackbelt Serial</field>
+      <field name="res_model">blackbelt.serial</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="blackbelt.action_server">
+      <field name="name">Blackbelt Server</field>
+      <field name="model_id" ref="model_blackbelt_blackbelt"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="Blackbelt" id="blackbelt.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Basic Information" id="blackbelt.menu1" parent="blackbelt.menu_root"/>
+    <menuitem name="Menu 2" id="blackbelt.menu2" parent="blackbelt.menu_root"/>
+    <!-- submenu categories -->
+    <menuitem name="Serial" id="blackbelt.menu1_serial" parent="blackbelt.menu1"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="blackbelt.menu1_list" parent="blackbelt.menu1"
+              action="blackbelt.action_window"/>
+    <menuitem name="Serial List" id="blackbelt.menu1_list_serial" parent="blackbelt.menu1"
+              action="blackbelt.action_window_serial"/>
+    <menuitem name="Server to list" id="blackbelt" parent="blackbelt.menu2"
+              action="blackbelt.action_server"/>
+
+
+  </data>
+</odoo>
