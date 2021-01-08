@@ -6,7 +6,8 @@ from odoo import models, fields, api
 class blackbelt(models.Model):
      _name = 'blackbelt.blackbelt'
      _description = 'blackbelt.blackbelt'
-     _sql_constraints = [ ('uq_deviceserial', 'unique(name, serialnumber)', 'Cannot Use one serial number twice!\nPlease, check serial# and imei')	]
+#     _sql_constraints = [ ('uq_deviceserial', 'unique(name, serialnumber)', 'Cannot Use one serial number twice!\nPlease, check serial# and imei')	]
+     _sql_constraints = [ ('uq_deviceid', 'unique(name)', 'Cannot Use one device ID twice!\nPlease, check serial# and imei'), ('uq_deviceserial', 'unique(serialnumber)', 'Cannot Use one serial number twice!\nPlease, check serial# and imei') ]
 
      name = fields.Char(string = 'Device Id')
      serialnumber = fields.Char(string = 'Serial Number')
