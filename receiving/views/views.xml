@@ -1,0 +1,77 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="receiving.list">
+      <field name="name">Blackbelt List</field>
+      <field name="model">receiving.blackbelt</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" invisible = "1"/>
+          <field name="serialnumber"/>
+          <field name="manufacturer"/>
+          <field name="model"/>
+          <field name="modelnumber"/>            
+          <field name="color"/>
+          <field name="carrier"/>
+          <field name="imei"/>
+          <field name="imei2"/>
+          <field name="batteryhealth"/>
+          <field name="wipe_type"/>
+          <field name="wipe_method"/>             
+          <field name="wipe_result"/>
+          <field name="wipe_date"/>
+          <field name="blacklisted" />
+          <field name="date_update" />
+          <field name="date_create"/>         
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="receiving.action_window">
+      <field name="name">Blackbelt Window</field>
+      <field name="res_model">receiving.blackbelt</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+      
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="receiving.action_server">
+      <field name="name">Blackbelt Server</field>
+      <field name="model_id" ref="model_receiving_blackbelt"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="Receiving" id="receiving.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Basic Information" id="receiving.menu1" parent="receiving.menu_root"/>
+    <menuitem name="Menu 2" id="receiving.menu2" parent="receiving.menu_root"/>
+    <!-- submenu categories -->
+
+    <!-- actions -->
+
+    <menuitem name="List" id="receiving.menu1_list" parent="receiving.menu1"
+              action="receiving.action_window"/>
+    <menuitem name="Server to list" id="blackbelt" parent="receiving.menu2"
+              action="receiving.action_server"/>
+
+
+  </data>
+</odoo>
