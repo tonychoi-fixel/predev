@@ -34,22 +34,3 @@ class blackbelt(models.Model):
          for record in self:
              record.date_update = fields.Datetime.now  
     
-            
-class blackbeltserial(models.Model):
-     _name = 'blackbelt.serial'
-     _description = 'blackbelt.serial'
-
-     name = fields.Char(string = 'Serial Number')
-     manufacturer = fields.Char()
-     date_create = fields.Datetime(string='Create Date', required=True, readonly=True, index=True, copy=False, default=fields.Datetime.now, help="Creation date of Serial number by blackbelt")
-    
-    
-     value = fields.Integer()
-     value2 = fields.Float(compute="_value_pc", store=True)
-     description = fields.Text()
-     
-
-     @api.depends('value')
-     def _value_pc(self):
-         for record in self:
-             record.value2 = float(record.value) / 100

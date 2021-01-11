@@ -27,20 +27,6 @@
         </tree>
       </field>
     </record>
-      
-    <record model="ir.ui.view" id="blackbelt.list_Serial">
-      <field name="name">Blackbelt Serial List</field>
-      <field name="model">blackbelt.serial</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="manufacturer"/>
-          <field name="value"/>
-          <field name="value2"/>
-          <field name="date_create"/>
-        </tree>
-      </field>
-    </record>
 
 
     <!-- actions opening views on models -->
@@ -51,11 +37,6 @@
       <field name="view_mode">tree,form</field>
     </record>
       
-    <record model="ir.actions.act_window" id="blackbelt.action_window_serial">
-      <field name="name">Blackbelt Serial</field>
-      <field name="res_model">blackbelt.serial</field>
-      <field name="view_mode">tree,form</field>
-    </record>
 
 
     <!-- server action to the one above -->
@@ -83,14 +64,11 @@
     <menuitem name="Basic Information" id="blackbelt.menu1" parent="blackbelt.menu_root"/>
     <menuitem name="Menu 2" id="blackbelt.menu2" parent="blackbelt.menu_root"/>
     <!-- submenu categories -->
-    <menuitem name="Serial" id="blackbelt.menu1_serial" parent="blackbelt.menu1"/>
 
     <!-- actions -->
 
     <menuitem name="List" id="blackbelt.menu1_list" parent="blackbelt.menu1"
               action="blackbelt.action_window"/>
-    <menuitem name="Serial List" id="blackbelt.menu1_list_serial" parent="blackbelt.menu1"
-              action="blackbelt.action_window_serial"/>
     <menuitem name="Server to list" id="blackbelt" parent="blackbelt.menu2"
               action="blackbelt.action_server"/>
 
