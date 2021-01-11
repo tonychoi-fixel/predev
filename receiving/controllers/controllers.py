@@ -16,6 +16,6 @@ class Receiving(http.Controller):
 
      @http.route('/receiving/blackbelt/objects/<model("receiving.blackbelt"):obj>/', auth='public')
      def object(self, obj, **kw):
-         return http.request.render('blackbelt.object', {
+         return http.request.render('receiving.object', {
              'object': obj
          })

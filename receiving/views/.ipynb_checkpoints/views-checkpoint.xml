@@ -67,7 +67,7 @@
 
     <!-- actions -->
 
-    <menuitem name="List" id="receiving.menu1_list" parent="receiving.menu1"
+    <menuitem name="Blackbelt List" id="receiving.menu1_list" parent="receiving.menu1"
               action="receiving.action_window"/>
     <menuitem name="Server to list" id="blackbelt" parent="receiving.menu2"
               action="receiving.action_server"/>
