@@ -17,6 +17,7 @@
           <field name="imei"/>
           <field name="imei2"/>
           <field name="batteryhealth"/>
+          <field name="batterycyclecount"/>
           <field name="wipe_type"/>
           <field name="wipe_method"/>             
           <field name="wipe_result"/>
