@@ -23,6 +23,9 @@
           <field name="wipe_result"/>
           <field name="wipe_date"/>
           <field name="blacklisted" />
+          <field name="userid"/>
+          <field name="windowspcname"/>
+          <field name="locationmapped"/>
           <field name="date_update" />
           <field name="date_create"/>         
         </tree>
