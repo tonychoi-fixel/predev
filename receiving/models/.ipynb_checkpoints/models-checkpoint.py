@@ -42,3 +42,23 @@ class ReceivingBlackbelt(models.Model):
          for record in self:
              record.date_update = fields.Datetime.now  
     
+class ReceivingAsn(models.Model):
+     _name = 'receiving.asn'
+     _description = 'receiving.asn'
+     _sql_constraints = [ ('uq_asnimei', 'unique(name, imei)', 'Cannot Use same ASN Number and Imei twice!\nPlease, check ASN# and Imei#')	]
+
+     name = fields.Char(string = 'ASN Number')
+     description = fields.Char()
+     serialnumber = fields.Char(string = 'Serial Number')
+     manufacturer = fields.Char()
+     model = fields.Char()
+     modelnumber = fields.Char()
+     storage = fields.Char()
+     color = fields.Char()
+     carrier = fields.Char()
+     imei = fields.Char(required=True)
+     imei2 = fields.Char()
+     userid = fields.Char()
+     windowspcname = fields.Char(string="PC Name")
+     date_update = fields.Datetime(compute="_date_now", store=True, string='Update Date', required=True, readonly=True, copy=False, default=fields.Datetime.now, help="Lastest Update Date")
+     date_create = fields.Datetime(store=True, string='Create Date', required=True, readonly=True, index=True, copy=False, default=fields.Datetime.now, help="Creation date of Serial number by blackbelt")
