@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 
-class receiving(models.Model):
+class ReceivingBlackbelt(models.Model):
      _name = 'receiving.blackbelt'
      _description = 'receiving.blackbelt'
 #     _sql_constraints = [ ('uq_deviceserial', 'unique(name, serialnumber)', 'Cannot Use one serial number twice!\nPlease, check serial# and imei')	]
