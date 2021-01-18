@@ -54,6 +54,7 @@
           <field name="imei2"/>
           <field name="userid"/>
           <field name="status"/>
+          <field name="date_received"/>
           <field name="windowspcname"/>
           <field name="date_update" />
           <field name="date_create"/>         
