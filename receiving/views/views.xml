@@ -24,6 +24,7 @@
           <field name="wipe_type"/>
           <field name="wipe_method"/>             
           <field name="wipe_result"/>
+          <field name="wipe_duration"/>
           <field name="wipe_date"/>
           <field name="func_date"/>
           <field name="blacklisted" />
