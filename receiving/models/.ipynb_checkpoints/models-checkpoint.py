@@ -61,7 +61,7 @@ class ReceivingAsn(models.Model):
      _description = 'receiving.asn'
      _sql_constraints = [ ('uq_asnimei', 'unique(name, imei)', 'Cannot Use same ASN Number and Imei twice!\nPlease, check ASN# and Imei#')	]
 
-     name = fields.Char(readonly=False, string = 'ASN Number')
+     name = fields.Char(readonly=False, required=True, string = 'ASN Number')
      description = fields.Char(readonly=False)
      serialnumber = fields.Char(readonly=False, string = 'Serial Number')
      manufacturer = fields.Char(readonly=False)
@@ -75,5 +75,6 @@ class ReceivingAsn(models.Model):
      userid = fields.Char()
      status = fields.Char(readonly=True, default='')
      windowspcname = fields.Char(string="PC Name")
+     date_received = fields.Datetime(store=True, string='Rcvd Date', readonly=True, index=True, copy=False, help="Received date by blackbelt")
      date_update = fields.Datetime(compute="_date_now", store=True, string='Update Date', required=True, readonly=True, copy=False, default=fields.Datetime.now, help="Lastest Update Date")
      date_create = fields.Datetime(store=True, string='Create Date', required=True, readonly=True, index=True, copy=False, default=fields.Datetime.now, help="Creation date of Serial number by blackbelt")

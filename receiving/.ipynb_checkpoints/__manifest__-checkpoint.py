@@ -28,5 +28,7 @@
         'views/views.xml',
         'views/templates.xml',
     ],
+    'installable': True,
+    'auto_install': True
 
 }
