@@ -1,0 +1,124 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="receiving.list">
+      <field name="name">Blackbelt List</field>
+      <field name="model">receiving.blackbelt</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" invisible = "1"/>
+          <field name="serialnumber"/>
+          <field name="manufacturer"/>
+          <field name="model"/>
+          <field name="modelnumber"/>            
+          <field name="color"/>
+          <field name="carrier"/>
+          <field name="imei"/>
+          <field name="imei2"/>
+          <field name="productversion"/>
+          <field name="wifiaddress"/>
+          <field name="bluetoothaddress"/>
+          <field name="battery_health"/>
+          <field name="battery_cyclecount"/>
+          <field name="wipe_type"/>
+          <field name="wipe_method"/>             
+          <field name="wipe_result"/>
+          <field name="wipe_duration"/>
+          <field name="wipe_date"/>
+          <field name="func_date"/>
+          <field name="blacklisted" />
+          <field name="userid"/>
+          <field name="windowspcname"/>
+          <field name="locationmapped"/>
+          <field name="date_update" />
+          <field name="date_create"/>         
+        </tree>
+      </field>
+    </record>
+      
+    <record model="ir.ui.view" id="receiving.list_asn">
+      <field name="name">ASN List</field>
+      <field name="model">receiving.asn</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="trackingnumber"/>
+          <field name="shippingcarrier"/>
+          <field name="date_shipping"/>
+          <field name="date_receiving"/>
+          <field name="description"/>
+          <field name="serialnumber"/>
+          <field name="manufacturer"/>
+          <field name="model"/>
+          <field name="modelnumber"/>            
+          <field name="color"/>
+          <field name="carrier"/>
+          <field name="imei"/>
+          <field name="imei2"/>
+          <field name='sourcegrade'/>
+          <field name='cosmetic'/>
+          <field name="userid"/>
+          <field name="status"/>
+          <field name="windowspcname"/>
+          <field name="date_update" />
+          <field name="date_create"/>         
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="receiving.action_window">
+      <field name="name">Blackbelt Window</field>
+      <field name="res_model">receiving.blackbelt</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+   
+    <record model="ir.actions.act_window" id="receiving.action_asnwindow">
+      <field name="name">ASN Window</field>
+      <field name="res_model">receiving.asn</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="receiving.action_server">
+      <field name="name">Blackbelt Server</field>
+      <field name="model_id" ref="model_receiving_blackbelt"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="Receiving" id="receiving.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Basic Information" id="receiving.menu1" parent="receiving.menu_root"/>
+    <menuitem name="ASN" id="receiving.menu_asn" parent="receiving.menu_root"/>
+    <menuitem name="Menu 2" id="receiving.menu2" parent="receiving.menu_root"/>
+    <!-- submenu categories -->
+
+    <!-- actions -->
+
+    <menuitem name="Blackbelt List" id="receiving.menu1_list" parent="receiving.menu1"
+              action="receiving.action_window"/>
+    <menuitem name="ASN list" id="receiving.menu2_list" parent="receiving.menu_asn"
+              action="receiving.action_asnwindow"/>
+    <menuitem name="Server to list" id="blackbelt" parent="receiving.menu2"
+              action="receiving.action_server"/>
+
+
+  </data>
+</odoo>

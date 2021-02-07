@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_receiving_blackbelt,receiving.blackbelt,model_receiving_blackbelt,base.group_user,1,1,1,1
+access_receiving_asn,receiving.asn,model_receiving_asn,base.group_user,1,1,1,1
