@@ -63,7 +63,7 @@ class ReceivingAsn(models.Model):
 
      name = fields.Char(readonly=False, required=True, string = 'ASN Number')
      trackingnumber = fields.Char(readonly=False, string='Tracking#')
-     shippingcarrier = fields.Char(readonly=False, string='Carrier')
+     shippingcarrier = fields.Char(readonly=False, string='Shiping Carrier')
      date_shipping = fields.Date(readonly=False, string='Shipping')
      date_receiving = fields.Date(readonly=False,string='Receiving')
      description = fields.Char(readonly=False)
