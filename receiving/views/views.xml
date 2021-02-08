@@ -74,6 +74,7 @@
       <field name="arch" type="xml">
       <search>
          <field name="name" />
+         <field name="model" filter_domain="[('model', 'ilike', self)]" />
          <field name="modelnumber" filter_domain="[('modelnumber', 'ilike', self)]" />
          <field name="serialnumber" string="Serial#" filter_domain="[('serialnumber', 'ilike', self)]" />
          <field name="imei" string="Imei" filter_domain="[('imei', 'ilike', self)]" />
