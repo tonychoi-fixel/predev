@@ -67,20 +67,45 @@
       </field>
     </record>
       
-    <record id="asn_search_form_view" model="ir.ui.view">
-        <field name="name">receiving.asn.search</field>
-        <field name="model">receiving.asn</field>
-        <field name="mode">primary</field>
-        <field name="inherit_id" ref="receiving.list_asn"/>
-        <field name="arch" type="xml">
-            <field name="name" position="replace">
-                <field name="name" string="Product" filter_domain="['|', '|', ('imei', 'ilike', self), ('name', 'ilike', self), ('trackingnumber', 'ilike', self)]"/>
-            </field>
-            <field name="imei" position="replace">
-                <field name="imei" string="Imei" filter_domain="['|', '|', ('imei', 'ilike', self), ('name', 'ilike', self), ('trackingnumber', 'ilike', self)]"/>
-            </field>
-        </field>
+    <!-- Search Suggestions on models -->
+      
+    <record id="search_all_blackbelt" model="ir.ui.view">
+      <field name="model">receiving.blackbelt</field>
+      <field name="arch" type="xml">
+      <search>
+         <field name="name" />
+         <field name="modelnumber" filter_domain="[('modelnumber', 'ilike', self)]" />
+         <field name="serialnumber" string="Serial#" filter_domain="[('serialnumber', 'ilike', self)]" />
+         <field name="imei" string="Imei" filter_domain="[('imei', 'ilike', self)]" />
+      </search>
+      </field>
     </record>
+      
+    <record id="action_all_blackbelt" model="ir.actions.act_window">
+      <field name="name">All Blackbelt</field>
+      <field name="res_model">receiving.blackbelt</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="search_all_blackbelt" />
+    </record>  
+      
+    <record id="search_all_asn" model="ir.ui.view">
+      <field name="model">receiving.asn</field>
+      <field name="arch" type="xml">
+      <search>
+         <field name="name" />
+         <field name="trackingnumber" filter_domain="[('trackingnumber', 'ilike', self)]" />
+         <field name="serialnumber" string="Serial#" filter_domain="[('serialnumber', 'ilike', self)]" />
+         <field name="imei" string="Imei" filter_domain="[('imei', 'ilike', self)]" />
+      </search>
+      </field>
+    </record>
+      
+    <record id="action_all_asn" model="ir.actions.act_window">
+      <field name="name">All ASNs</field>
+      <field name="res_model">receiving.asn</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="search_all_asn" />
+    </record> 
 
 
     <!-- actions opening views on models -->
