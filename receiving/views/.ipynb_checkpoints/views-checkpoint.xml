@@ -95,6 +95,8 @@
       <search>
          <field name="name" />
          <field name="trackingnumber" filter_domain="[('trackingnumber', 'ilike', self)]" />
+         <field name="model" filter_domain="[('model', 'ilike', self)]" />
+         <field name="modelnumber" filter_domain="[('modelnumber', 'ilike', self)]" />
          <field name="serialnumber" string="Serial#" filter_domain="[('serialnumber', 'ilike', self)]" />
          <field name="imei" string="Imei" filter_domain="[('imei', 'ilike', self)]" />
       </search>
