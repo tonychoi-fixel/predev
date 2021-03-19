@@ -62,6 +62,7 @@ class ReceivingAsn(models.Model):
      _sql_constraints = [ ('uq_asnimei', 'unique(name, imei)', 'Cannot Use same ASN Number and Imei twice!\nPlease, check ASN# and Imei#')	]
 
      name = fields.Char(readonly=False, required=True, string = 'ASN Number')
+     ponumber = fields.Char(readonly=False, string = 'PO#')
      trackingnumber = fields.Char(readonly=False, string='Tracking#')
      shippingcarrier = fields.Char(readonly=False, string='Shiping Carrier')
      date_shipping = fields.Date(readonly=False, string='Shipping')
