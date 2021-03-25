@@ -11,7 +11,8 @@
           <field name="serialnumber"/>
           <field name="manufacturer"/>
           <field name="model"/>
-          <field name="modelnumber"/>            
+          <field name="modelnumber"/>     
+          <field name="storage"/> 
           <field name="color"/>
           <field name="carrier"/>
           <field name="imei"/>
@@ -52,7 +53,8 @@
           <field name="serialnumber"/>
           <field name="manufacturer"/>
           <field name="model"/>
-          <field name="modelnumber"/>            
+          <field name="modelnumber"/>
+          <field name="storage"/> 
           <field name="color"/>
           <field name="carrier"/>
           <field name="imei"/>
@@ -95,6 +97,7 @@
       <field name="arch" type="xml">
       <search>
          <field name="name" />
+         <field name="ponumber" filter_domain="[('trackingnumber', 'ilike', self)]" />
          <field name="trackingnumber" filter_domain="[('trackingnumber', 'ilike', self)]" />
          <field name="model" filter_domain="[('model', 'ilike', self)]" />
          <field name="modelnumber" filter_domain="[('modelnumber', 'ilike', self)]" />
