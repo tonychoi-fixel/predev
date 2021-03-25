@@ -55,6 +55,7 @@
           <field name="model"/>
           <field name="modelnumber"/>
           <field name="storage"/> 
+          <field name="storage_rcvd"/>
           <field name="color"/>
           <field name="carrier"/>
           <field name="imei"/>

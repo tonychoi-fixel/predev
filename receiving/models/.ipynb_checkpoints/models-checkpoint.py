@@ -73,6 +73,7 @@ class ReceivingAsn(models.Model):
      model = fields.Char(readonly=False)
      modelnumber = fields.Char(readonly=False)
      storage = fields.Char(readonly=False)
+     storage_rcvd = fields.Char(readonly=True)
      color = fields.Char(readonly=False)
      carrier = fields.Char(readonly=False)
      imei = fields.Char(required=False)
